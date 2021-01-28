@@ -1,0 +1,44 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: udagram-api-reverseproxy 
+  labels:
+    app: udagram-api-reverseproxy 
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: udagram-api-reverseproxy 
+  template:
+    metadata:
+      labels:
+        app: udagram-api-reverseproxy 
+    spec:
+      containers:
+      - name: udagram-api-reverseproxy 
+        image: theresmith/udagram-api-reverseproxy 
+        # image: ubuntu:groovy
+        imagePullPolicy: "Always"
+        resources:
+          limits:
+            cpu: "2"
+          requests:
+            cpu: "1"
+          limits:
+            memory: "700Mi"
+          requests:
+            memory: "100Mi"
+        ports:
+        - containerPort: 8080
+        envFrom:
+        - configMapRef:
+            name: app-config    
+        - secretRef:
+            name: app-secret
+        env:
+        - name: MESSAGE
+          value: "hello world"          
+        # command: ["tail"]
+        # args: ["-f","/dev/null"]         
+        # command: ["printenv"]
+        # args: ["POSTGRES_HOST", "POSTGRES_USERNAME", "POSTGRES_PASSWORD","MESSAGE"]

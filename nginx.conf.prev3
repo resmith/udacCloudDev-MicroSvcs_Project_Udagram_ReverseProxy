@@ -1,0 +1,21 @@
+
+events {
+}
+http {
+  server {
+    listen 8080;
+    # Be sure to include '/' at the end of the URL for location & proxy_pass
+    location /api/v0/feed/ {
+      resolver 127.0.0.11;
+      set $feedapi udagram-api-feed:8080/api/v0/feed/;
+      proxy_pass http://$feedapi;
+    }
+
+    location /api/v0/users/ {
+      resolver 127.0.0.11;
+      set $usersapi udagram-api-feed:8080/api/v0/users/;
+      proxy_pass http://$feedapi;
+    }
+
+  }
+}
