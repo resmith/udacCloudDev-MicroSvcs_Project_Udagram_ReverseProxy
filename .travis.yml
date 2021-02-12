@@ -1,6 +1,6 @@
 env:
   global:
-    - IMAGE=reverseproxy
+    - IMAGE=reverse-proxy
 
 language: node_js
 node_js:

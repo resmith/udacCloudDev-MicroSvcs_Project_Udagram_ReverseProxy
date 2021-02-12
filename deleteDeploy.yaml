@@ -2,21 +2,21 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   labels:
-    service: udagram-reverseproxy
-  name: udagram-reverseproxy
+    service: udagram-reverse-proxy
+  name: udagram-reverse-proxy
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: udagram-reverseproxy
+      app: udagram-reverse-proxy
   template:
     metadata:
       labels:
-        app: udagram-reverseproxy
+        app: udagram-reverse-proxy
     spec:
       containers:
-      - name: udagram-reverseproxy
-        image: theresmith/udagram-reverseproxy
+      - name: udagram-reverse-proxy
+        image: theresmith/udagram-reverse-proxy
         # image: ubuntu:groovy
         imagePullPolicy: "Always"
         resources:

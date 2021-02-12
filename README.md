@@ -1,4 +1,4 @@
-# udacCloudDev-MicroSvcs_Project_Udagram_ReverseProxy
+# udacCloudDev-MicroSvcs_Project_Udagram_reverse-proxy
 
 Reverse Proxy for the Udacity Cloud Developer -MicroServices Project - Udagram
 
